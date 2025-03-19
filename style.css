@@ -1,0 +1,71 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0e0e0e;
+  color: #f0f0f0;
+}
+
+header {
+  padding: 50px 10%;
+  background: linear-gradient(135deg, #0d0d0d, #1c1c1c);
+  text-align: center;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.profile img {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #00ffff;
+}
+
+h1 {
+  font-size: 2.5em;
+  color: #00ffff;
+}
+
+main {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 15px 30px;
+  color: #0e0e0e;
+  background: #00ffff;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  background: #00b3b3;
+}
+
+.project-card {
+  background: #1a1a1a;
+  padding: 20px;
+  border-radius: 15px;
+  margin: 20px auto;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  color: #888;
+  margin-top: 40px;
+}
