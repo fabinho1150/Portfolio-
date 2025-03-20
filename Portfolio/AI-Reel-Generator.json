@@ -1,0 +1,66 @@
+{
+  "name": "AI Reel Generator",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "1",
+      "name": "Cron",
+      "type": "n8n-nodes-base.cron",
+      "typeVersion": 1,
+      "position": [250, 300],
+      "parameters": {
+        "triggerTimes": [{ "hour": 8, "minute": 0 }] 
+      }
+    },
+    {
+      "parameters": {
+        "functionCode": "return [{ json: { topic: 'Motivation für AI-Anwender', caption: '5 Gründe, warum du AI für dein Business brauchst' } }];"
+      },
+      "id": "2",
+      "name": "Content-Idee generieren",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 1,
+      "position": [450, 300]
+    },
+    {
+      "parameters": {
+        "url": "http://localhost:5000/sdapi/v1/txt2img",
+        "method": "POST",
+        "jsonParameters": true,
+        "options": {},
+        "bodyParametersJson": "{ \"prompt\": \"Motivational sunrise city skyline, cinematic, ultra realistic\" }"
+      },
+      "id": "3",
+      "name": "Stable Diffusion Bild generieren",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 1,
+      "position": [650, 300]
+    },
+    {
+      "parameters": {
+        "command": "ffmpeg -y -framerate 1 -i /pfad/zum/bild%01d.png -vf \"fade=t=in:st=0:d=1, fade=t=out:st=4:d=1\" -t 5 -pix_fmt yuv420p /pfad/zum/output/video.mp4"
+      },
+      "id": "4",
+      "name": "FFmpeg Video bauen",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [850, 300]
+    },
+    {
+      "parameters": {
+        "filePath": "/pfad/zum/output/video.mp4"
+      },
+      "id": "5",
+      "name": "Video speichern (lokal)",
+      "type": "n8n-nodes-base.moveBinaryData",
+      "typeVersion": 1,
+      "position": [1050, 300]
+    }
+  ],
+  "connections": {
+    "1": { "main": [[{ "node": "2", "type": "main", "index": 0 }]] },
+    "2": { "main": [[{ "node": "3", "type": "main", "index": 0 }]] },
+    "3": { "main": [[{ "node": "4", "type": "main", "index": 0 }]] },
+    "4": { "main": [[{ "node": "5", "type": "main", "index": 0 }]] }
+  }
+}

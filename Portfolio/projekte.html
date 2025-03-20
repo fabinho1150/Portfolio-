@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fabio Fartek • Projekte</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+      background: #000;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 60px 20px;
+    }
+
+    h1 {
+      font-size: 3vw;
+      margin-bottom: 10px;
+    }
+
+    .intro {
+      max-width: 600px;
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 1vw;
+      color: #ccc;
+    }
+
+    .github-link {
+      margin-bottom: 40px;
+      color: #00aaff;
+      text-decoration: none;
+      font-weight: 700;
+      transition: color 0.3s;
+    }
+
+    .github-link:hover {
+      color: #0088cc;
+    }
+
+    .project-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      max-width: 600px;
+      width: 100%;
+    }
+
+    .project-card {
+      background: #111;
+      padding: 20px;
+      border-radius: 12px;
+      transition: all 0.3s;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 20px rgba(0, 170, 255, 0.5);
+    }
+
+    .project-title {
+      font-weight: 700;
+      font-size: 1.4vw;
+      margin-bottom: 8px;
+    }
+
+    .project-desc {
+      font-size: 0.9vw;
+      color: #ccc;
+      line-height: 1.4;
+    }
+
+    .back-btn {
+      margin-bottom: 40px;
+      padding: 8px 16px;
+      background: #00aaff;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 20px;
+      font-weight: 700;
+      transition: background 0.3s;
+    }
+
+    .back-btn:hover {
+      background: #0088cc;
+    }
+  </style>
+</head>
+<body>
+  <a href="index.html" class="back-btn">Zurück zur Startseite</a>
+  <h1>Meine Projekte 🚀</h1>
+
+  <div class="intro">
+    Diese Projekte habe ich selbst programmiert – mit Visual Studio & der Hilfe von AI / ChatGPT.
+  </div>
+
+  <a class="github-link" href="https://github.com/DEIN_GITHUB_NAME" target="_blank">Mein GitHub Profil ansehen →</a>
+
+  <div class="project-grid">
+    <div class="project-card">
+      <div class="project-title">AI Grafikgenerator</div>
+      <div class="project-desc">Ein Tool zur Generierung von visuellen Assets mit MidJourney und AI gestützten Modellen.</div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-title">Webbasierter Texteditor</div>
+      <div class="project-desc">Minimalistischer Editor für schnelle Textbearbeitung im Browser – responsive und performant.</div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-title">Automatisierungs-Tool mit Zapier</div>
+      <div class="project-desc">Erstellung von Automations-Workflows für die Verbindung von Web-Apps und APIs.</div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-title">C-basierter HTTP-Server</div>
+      <div class="project-desc">Leichter Webserver geschrieben in C für die Auslieferung von statischen Inhalten.</div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-title">Portfolio Website</div>
+      <div class="project-desc">Diese Webseite selbst: eine moderne, responsive Portfolio-Page mit Fokus auf UX/UI.</div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fabio Fartek • Intro</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      background: #000;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    .fade-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #000;
+      opacity: 0;
+      transition: opacity 1s ease;
+      z-index: 5;
+    }
+
+    .intro-text {
+      font-size: 3vw;
+      font-weight: 900;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 1s ease;
+      position: absolute;
+      text-align: center;
+    }
+
+    .intro-text.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .final-section {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      text-align: center;
+      position: absolute;
+      width: 100%;
+      top: 0;
+      height: 100vh;
+      background: #000;
+      gap: 10px;
+      padding-top: 40px;
+    }
+
+    .final-section img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      transition: all 1.2s ease;
+      opacity: 0;
+    }
+
+    .final-section img.visible {
+      opacity: 1;
+    }
+
+    .final-text {
+      opacity: 0;
+      font-size: 1.3vw;
+      font-weight: 700;
+      margin-top: 4px;
+      max-width: 600px;
+      line-height: 1.3;
+      transition: all 1s ease;
+    }
+
+    .final-text small {
+      display: block;
+      font-size: 0.6em;
+      font-weight: 400;
+      color: #aaa;
+      margin-top: 3px;
+    }
+
+    .final-text.visible {
+      opacity: 1;
+    }
+
+    .home-button {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: #fff;
+      color: #000;
+      padding: 8px 14px;
+      border-radius: 20px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background 0.3s;
+      z-index: 10;
+      font-size: 0.85em;
+    }
+
+    .home-button:hover {
+      background: #ddd;
+    }
+
+    .divider {
+      width: 30px;
+      height: 1px;
+      background: #333;
+      margin: 8px auto;
+    }
+
+    .footer {
+      position: absolute;
+      bottom: 10px;
+      left: 20px;
+      font-size: 0.7em;
+      color: #888;
+    }
+  </style>
+</head>
+
+<body>
+  <a href="index.html" class="home-button">Home</a>
+
+  <div class="fade-overlay" id="overlay"></div>
+
+  <div class="step-container">
+    <div class="intro-text step-1">Hallo.</div>
+    <div class="intro-text step-2">Mein Name ist Fabio Fartek.</div>
+    <div class="intro-text step-3">Ich liebe Technologie und AI.</div>
+    <div class="intro-text step-4">Und Sushi 🍣.</div>
+  </div>
+
+  <div class="final-section" id="final">
+    <img src="images/IMG_1280-removebg-preview.png" alt="Fabio Fartek" id="profile">
+    <div class="final-text final-1">Ich bin ein Tech-Enthusiast 💻.<small>Immer auf der Suche nach Innovation.</small></div>
+    <div class="divider"></div>
+    <div class="final-text final-2">AI ist meine Leidenschaft 🤖.<small>Von MidJourney bis zu AI Coding Tools.</small></div>
+    <div class="divider"></div>
+    <div class="final-text final-3">Ich liebe Sport und Fitness 🏋️‍♂️.<small>Halten Körper & Geist fit.</small></div>
+    <div class="divider"></div>
+    <div class="final-text final-4">Kreatives Arbeiten begeistert mich 🎨.<small>Grafikdesign & visuelle Ideen.</small></div>
+    <div class="divider"></div>
+    <div class="final-text final-5">Reisen inspiriert mich 🌍.<small>Neue Kulturen und Perspektiven erleben.</small></div>
+    <div class="divider"></div>
+    <div class="final-text final-6">Teamarbeit ist mir wichtig 🤝.<small>Gemeinsam mehr erreichen.</small></div>
+    <div class="divider"></div>
+    <div class="final-text final-7">Neugier treibt mich an 🔍.<small>Lernen endet nie.</small></div>
+  </div>
+
+  <div class="footer">Fabio Fartek • Based in Vienna • Open for AI & Coding Projects</div>
+
+  <script>
+    const steps = document.querySelectorAll('.intro-text');
+    const overlay = document.getElementById('overlay');
+    let delay = 0;
+
+    steps.forEach((el) => {
+      setTimeout(() => {
+        overlay.style.opacity = 0;
+        el.classList.add('visible');
+      }, delay);
+      delay += 2500;
+      setTimeout(() => {
+        overlay.style.opacity = 1;
+        el.classList.remove('visible');
+      }, delay - 1000);
+      delay += 500;
+    });
+
+    // Show final section after all steps
+    setTimeout(() => {
+      overlay.style.opacity = 0;
+      document.querySelector('.step-container').style.display = 'none';
+      document.getElementById('final').style.display = 'flex';
+      document.getElementById('profile').classList.add('visible');
+
+      const finalTexts = document.querySelectorAll('.final-text');
+      let innerDelay = 0;
+      finalTexts.forEach((text) => {
+        setTimeout(() => text.classList.add('visible'), innerDelay);
+        innerDelay += 1300;
+      });
+
+    }, delay);
+  </script>
+</body>
+
+</html>
